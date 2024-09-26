@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: inherit;
+}
+
+body {
+    font-family: "Silkscreen", system-ui;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    justify-content: space-between;
+}
+
+.moves {
+    // text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 350px;
+    margin-bottom: 50px;
+}
+
+.moves::before {
+    position: absolute;
+    content: "You";
+    top: 100%;
+    left: 35px;
+    // left: -50px;
+}
+
+.moves::after {
+    position: absolute;
+    content: "Computer";
+    top: 100%;
+    right: 10px;
+    // left: 50px;
+    // right: -25px;
+    // right: -85px;
+}
+
+.move-icon {
+    width: 50px;
+    // margin: 0 20px;
+}

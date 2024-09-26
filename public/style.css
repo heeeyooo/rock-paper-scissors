@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+body {
+  font-family: "Silkscreen", system-ui;
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+  justify-content: space-between;
+}
+
+.moves {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 350px;
+  margin-bottom: 50px;
+}
+
+.moves::before {
+  position: absolute;
+  content: "You";
+  top: 100%;
+  left: 35px;
+}
+
+.moves::after {
+  position: absolute;
+  content: "Computer";
+  top: 100%;
+  right: 10px;
+}
+
+.move-icon {
+  width: 50px;
+}/*# sourceMappingURL=style.css.map */
