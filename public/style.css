@@ -53,6 +53,7 @@ body {
   width: 250px;
   height: 50px;
   background-color: white;
+  color: black;
 }
 
 .play-with-comp-btn:hover, .reset-score-btn:hover, .play-with-other-btn:hover {
@@ -172,6 +173,7 @@ body {
   background-color: greenyellow;
   height: 50px;
   padding: 0 20px;
+  color: black;
 }
 
 .autoplay-btn:hover {

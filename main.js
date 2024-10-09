@@ -64,7 +64,9 @@ function autoPlay() {
 
 function start() {
     document.querySelector(".preview").remove();
-    document.querySelector(".container").classList.remove("none");
+    setTimeout(() => {
+        document.querySelector(".container").classList.remove("none");
+    }, 100);
 }
 
 let score = JSON.parse(localStorage.getItem("score")) || {
