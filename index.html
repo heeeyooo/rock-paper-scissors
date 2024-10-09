@@ -6,31 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="public/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="score"></div>
-        <p class="result"></p>
-        <div class="moves">- vs -</div>
-        <div>
-            <button onclick="playGame('rock')"><img class="move-icon" src="img/paper-emoji.png" alt=""></button>
-            <button onclick="playGame('paper')"><img class="move-icon" src="img/rock-emoji.png" alt=""></button>
-            <button onclick="playGame('scissors')"><img class="move-icon" src="img/scissors-emoji.png" alt=""></button>
+    <div class="preview">
+        <h1>Rock<br>Paper<br>Scissors</h1>
+        <div class="preview__btn-container">
+            <button class="play-with-other-btn">Play with other</button>
+            <button class="play-with-comp-btn js-play-with-comp-btn">Play with computer</button>
         </div>
-
-        <button onclick="
-        localStorage.removeItem('score')
-         document.querySelector('.result').innerHTML = ''
-    document.querySelector('.moves').innerHTML = ''
-        score.wins = 0
-        score.losses = 0
-        score.ties= 0
-        updateScore()
-        ">Reset score</button>
+    </div>
+    <div class="container none">
+        <section class="profile-section">
+            <div class="profile-container1">
+                <img class="profile-img" src="./img/computer.jpg" alt="">
+            </div>
+            <div class="score"></div>
+            <div class="profile-container2">
+                <img class="profile-img" src="./img/computer.jpg" alt="">
+            </div>
+        </section>
+        <p class="result"></p>
+        <div class="moves">vs</div>
+        <div class="move-container">
+            <button class="js-rock-btn" title="Rock"><img class="choise-icon" src="img/rock-emoji.png"
+                    alt="rock"></button>
+            <button class="js-paper-btn" title="Paper"><img class="choise-icon" src="img/paper-emoji.png"
+                    alt="paper"></button>
+            <button class="js-scissors-btn" title="Scissors"><img class="choise-icon" src="img/scissors-emoji.png"
+                    alt="scissors"></button>
+        </div>
+        <div>
+            <button class="reset-score-btn js-reset-score-btn">Reset score</button>
+            <button class="autoplay-btn js-autoplay-btn">Autoplay</button>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

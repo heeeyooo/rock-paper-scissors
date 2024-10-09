@@ -1,3 +1,72 @@
+const playWithCompBtn = document.querySelector(".js-play-with-comp-btn");
+playWithCompBtn.addEventListener("click", () => {
+    start();
+});
+
+const rockBtn = document.querySelector(".js-rock-btn");
+rockBtn.addEventListener("click", () => {
+    playGame("rock");
+});
+const paperBtn = document.querySelector(".js-paper-btn");
+paperBtn.addEventListener("click", () => {
+    playGame("paper");
+});
+const scissorsBtn = document.querySelector(".js-scissors-btn");
+scissorsBtn.addEventListener("click", () => {
+    playGame("scissors");
+});
+
+const resetScoreBtn = document.querySelector(".js-reset-score-btn");
+resetScoreBtn.addEventListener("click", () => {
+    localStorage.removeItem("score");
+    document.querySelector(".result").innerHTML = "";
+    document.querySelector(".moves").innerHTML = "vs";
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    updateScore();
+});
+
+addEventListener("keydown", (event) => {
+    if (event.key === "r") {
+        playGame("rock");
+    } else if (event.key === "p") {
+        playGame("paper");
+    } else if (event.key === "s") {
+        playGame("scissors");
+    }
+});
+
+const autoplayBtn = document.querySelector(".js-autoplay-btn");
+autoplayBtn.addEventListener("click", () => {
+    autoPlay();
+});
+
+let isAutoPlay = false;
+let intervalId;
+
+function autoPlay() {
+    if (!isAutoPlay) {
+        intervalId = setInterval(() => {
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+        isAutoPlay = true;
+        autoplayBtn.textContent = "Stop";
+    } else {
+        clearInterval(intervalId);
+        isAutoPlay = false;
+        document.querySelector(".result").innerHTML = "";
+        document.querySelector(".moves").innerHTML = "vs";
+        autoplayBtn.textContent = "Autoplay";
+    }
+}
+
+function start() {
+    document.querySelector(".preview").remove();
+    document.querySelector(".container").classList.remove("none");
+}
+
 let score = JSON.parse(localStorage.getItem("score")) || {
     wins: 0,
     ties: 0,
@@ -48,7 +117,7 @@ function playGame(playerMove) {
     document.querySelector(".result").innerHTML = result;
     document.querySelector(
         ".moves"
-    ).innerHTML = `<img class="move-icon" src="img/${playerMove}-emoji.png" alt=""> - vs - <img class="move-icon"
+    ).innerHTML = `<img class="move-icon" src="img/${playerMove}-emoji.png" alt=""> vs <img class="move-icon"
                 src="img/${computerMove}-emoji.png" alt="">`;
     updateScore();
 }
@@ -56,7 +125,7 @@ function playGame(playerMove) {
 function updateScore() {
     document.querySelector(
         ".score"
-    ).innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+    ).innerHTML = `${score.wins}:${score.losses}`;
 }
 
 function pickComputerMove() {
